@@ -13,6 +13,7 @@ export default defineConfig({
     ]
   },
   build: {
-    // minify: true,
+    minify: true,
+    outDir: "dist"
   },
 });
