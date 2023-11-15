@@ -7,8 +7,8 @@ import {
   RiMenu3Fill,
   RiStethoscopeLine,
 } from 'react-icons/ri';
-import logo from '../assets/images/logo.png';
-import sidebarImg from '../assets/images/undraw_diary_re_4jpc.svg';
+import logo from 'src/assets/images/logo.png';
+import sidebarImg from 'src/assets/images/undraw_diary_re_4jpc.svg';
 
 function Sidebar() {
   const [sidebar, setSidebar] = useState(false);

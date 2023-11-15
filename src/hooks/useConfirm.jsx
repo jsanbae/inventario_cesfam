@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useRef } from "react"
-import Alert from "../components/Alert";
+import Alert from "src/components/Alert";
 
 const ConfirmDialog = createContext();
 

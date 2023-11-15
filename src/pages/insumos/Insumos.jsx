@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { RiArrowDownLine, RiAddCircleLine } from 'react-icons/ri';
 import { toast } from 'react-toastify';
-import ListItems from '../../Item/components/ListItems';
-import ItemForm from '../../Item/components/ItemForm';
-import OffCanvas from './../../components/Offcanvas';
-import { useOffCanvasContext, useOffCanvasToggleContext } from "../../context/OffCanvasContext";
-import { useAddItem } from '../../Item/custom-hooks';
-import { insumoFields } from '../../Item/constants/formFields';
+import ListItems from 'src/Item/components/ListItems';
+import ItemForm from 'src/Item/components/ItemForm';
+import { useAddItem } from 'src/Item/custom-hooks';
+import { insumoFields } from 'src/Item/constants/formFields';
+import OffCanvas from 'src/components/Offcanvas';
+import { useOffCanvasContext, useOffCanvasToggleContext } from "src/context/OffCanvasContext";
 
 export default function Insumos() {
 

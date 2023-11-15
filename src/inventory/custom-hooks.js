@@ -1,5 +1,5 @@
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { LIST_INVENTORY_MOVEMENTS } from './graphql-query';
+import { LIST_INVENTORY_MOVEMENTS } from 'src/Inventory/graphql-query';
 import { ADD_INVENTORY_REGISTRY_MUTATION, UPDATE_INVENTORY_REGISTRY_MUTATION, DELETE_INVENTORY_REGISTRY_MUTATION } from './graphql-mutation';
 
 export const useListInventoryMovements = () => {

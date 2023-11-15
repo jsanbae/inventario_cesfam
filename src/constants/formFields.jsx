@@ -1,4 +1,4 @@
-import randomID from "../utils/randomID";
+import randomID from "src/utils/randomID";
 
 const fieldKey = () => randomID();
 

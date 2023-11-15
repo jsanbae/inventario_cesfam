@@ -1,11 +1,11 @@
 import React, {useContext, useEffect} from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { AuthContext } from '../context/AuthContext';
-import Sidebar from '../components/Sidebar';
-import Header from '../components/Header';
-import { OffCanvasProvider } from '../context/OffCanvasContext';
-import { ConfirmDialogProvider } from '../hooks/useConfirm';
+import { AuthContext } from 'src/context/AuthContext';
+import Sidebar from 'src/components/Sidebar';
+import Header from 'src/components/Header';
+import { OffCanvasProvider } from 'src/context/OffCanvasContext';
+import { ConfirmDialogProvider } from 'src/hooks/useConfirm';
 
 export default function MainLayout() {
   const context = useContext(AuthContext);

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import moment from 'moment';
-import useTable from "../hooks/useTable";
-import TablePaginator from "./TablePaginator";
-import randomID from "../utils/randomID";
+import useTable from "src/hooks/useTable";
+import TablePaginator from "src/components/TablePaginator";
+import randomID from "src/utils/randomID";
 
 const TableWithPagination = ({ titles, data, rowsPerPage }) => {
   const [page, setPage] = useState(1);

@@ -1,13 +1,13 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import {RiAddCircleLine} from 'react-icons/ri';
-import OffCanvas from './../../components/Offcanvas';
-import { useOffCanvasContext, useOffCanvasToggleContext } from "../../context/OffCanvasContext";
-import ListInventoryMovements from '../../Inventory/components/ListInventoryMovements';
-import InventoryForm from '../../Inventory/components/InventoryForm';
-import { inventoryFields } from '../../Inventory/constants/formFields';
-import { useAddRegistry } from '../../Inventory/custom-hooks';
-import { useListItems } from "../../Item/custom-hooks";
+import OffCanvas from 'src/components/Offcanvas';
+import { useOffCanvasContext, useOffCanvasToggleContext } from "src/context/OffCanvasContext";
+import ListInventoryMovements from 'src/Inventory/components/ListInventoryMovements';
+import InventoryForm from 'src/Inventory/components/InventoryForm';
+import { inventoryFields } from 'src/Inventory/constants/formFields';
+import { useAddRegistry } from 'src/Inventory/custom-hooks';
+import { useListItems } from "src/Item/custom-hooks";
 
 export default function Inventario() {
 

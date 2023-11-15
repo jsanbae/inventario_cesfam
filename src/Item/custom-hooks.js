@@ -1,6 +1,6 @@
 import { useLazyQuery, useMutation } from '@apollo/react-hooks';
-import { LIST_ITEMS } from './graphql-query';
-import { ADD_ITEM_MUTATION, UPDATE_ITEM_MUTATION, DELETE_ITEM_MUTATION } from './graphql-mutation';
+import { LIST_ITEMS } from 'src/Item/graphql-query';
+import { ADD_ITEM_MUTATION, UPDATE_ITEM_MUTATION, DELETE_ITEM_MUTATION } from 'src/Item/graphql-mutation';
 
 export const useListItems = () => {
 // export const useListItems = (pattern = "", options = {} ) => {

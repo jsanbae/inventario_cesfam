@@ -2,11 +2,11 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useSearchParams } from "react-router-dom"
 import { toast } from 'react-toastify';
 import { ColorRing } from  'react-loader-spinner'
-import { useOffCanvasContext, useOffCanvasToggleContext } from "../../context/OffCanvasContext";
-import { useListItems, useDeleteItem } from '../custom-hooks';
-import useConfirm from '../../hooks/useConfirm';
-import Item from './Item';
-import randomID from '../../utils/randomID';
+import { useOffCanvasContext, useOffCanvasToggleContext } from "src/context/OffCanvasContext";
+import { useListItems, useDeleteItem } from 'src/Item/custom-hooks';
+import useConfirm from 'src/hooks/useConfirm';
+import Item from 'src/Item/components/Item';
+import randomID from 'src/utils/randomID';
 
 function ListItems({ setDataLength }) {
     const [queryParameters] = useSearchParams()

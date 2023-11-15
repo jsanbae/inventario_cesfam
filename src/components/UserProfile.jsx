@@ -2,8 +2,8 @@ import { React, useContext,useRef, useState } from 'react';
 import { useMutation, gql } from '@apollo/client';
 import { useNavigate } from 'react-router-dom';
 import { RiArrowDropDownFill, RiLogoutCircleLine, RiAccountCircleLine} from 'react-icons/ri';
-import { AuthContext } from '../context/AuthContext';
-import useOnHoverOutside from '../hooks/useOnHoverOutside';
+import { AuthContext } from 'src/context/AuthContext';
+import useOnHoverOutside from 'src/hooks/useOnHoverOutside';
 
 const UserProfile = () => {
   const context = useContext(AuthContext);

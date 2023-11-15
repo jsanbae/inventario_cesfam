@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { RiStethoscopeFill, RiDeleteBin5Fill, RiEdit2Fill } from 'react-icons/ri'
-import { startAnimation } from '../../utils/startAnimation';
+import { startAnimation } from 'src/utils/startAnimation';
 
 export default function Item({insumo, confirmDelete}) {
   

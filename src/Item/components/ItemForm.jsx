@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
-import FormBuilder from '../../components/FormBuilder';
-import useForm from '../../hooks/useForm';
-import randomID from '../../utils/randomID';
+import FormBuilder from 'src/components/FormBuilder';
+import useForm from 'src/hooks/useForm';
+import randomID from 'src/utils/randomID';
 
 export default function InsumoForm({formFields, setFormValues, formValues, onSubmitHandler, formErrors}) {
     const [errors, setErrors] = useState([]);

@@ -1,6 +1,6 @@
-import ItemsState from "./ItemsState"
-import ItemsTypeEnum from "./ItemsTypeEnum"
-import randomID from "../../utils/randomID";
+import ItemsState from "src/Item/constants/ItemsState"
+import ItemsTypeEnum from "src/Item/constants/ItemsTypeEnum"
+import randomID from "src/utils/randomID";
 
 const fieldKey = () => randomID();
 

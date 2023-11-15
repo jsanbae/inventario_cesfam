@@ -4,12 +4,12 @@ import {
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import Login from './pages/auth/Login';
-import MainLayout from './pages/MainLayout';
-import Dashboard from './pages/dashboard/Dashboard';
-import Insumos from './pages/insumos/Insumos';
-import Inventario from './pages/inventario/Inventario';
-import NotFound from './pages/errors/NotFound';
+import Login from 'src/pages/auth/Login';
+import MainLayout from 'src/pages/MainLayout';
+import Dashboard from 'src/pages/dashboard/Dashboard';
+import Insumos from 'src/pages/insumos/Insumos';
+import Inventario from 'src/pages/inventario/Inventario';
+import NotFound from 'src/pages/errors/NotFound';
 
 function App() {
   return (

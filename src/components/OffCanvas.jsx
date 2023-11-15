@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { RiCloseFill } from "react-icons/ri";
-import { useOffCanvasToggleContext, useOffCanvasContext } from "../context/OffCanvasContext";
-import { startAnimation } from "../utils/startAnimation";
+import { useOffCanvasToggleContext, useOffCanvasContext } from "src/context/OffCanvasContext";
+import { startAnimation } from "src/utils/startAnimation";
 
 const OffCanvas = ({ offCanvasContent }) => {
 

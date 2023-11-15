@@ -1,6 +1,6 @@
 import React from 'react';
-import MainSearchComponent from './MainSearchComponent';
-import UserProfile from './UserProfile';
+import MainSearchComponent from 'src/components/MainSearchComponent';
+import UserProfile from 'src/components/UserProfile';
 
 function Header() {
   return (

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
-import randomID from "../utils/randomID";
+import randomID from "src/utils/randomID";
 
 const TablePaginator = ({ range, setPage, page, slice, total, rowsPerPage }) => {
   

@@ -1,14 +1,14 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext';
-import { loginFields } from '../../constants/formFields';
-import { LOGIN_USER_MUTATION } from '../../graphql/operations/auth';
+import { AuthContext } from 'src/context/AuthContext';
+import { loginFields } from 'src/constants/formFields';
+import { LOGIN_USER_MUTATION } from 'src/graphql/operations/auth';
 import { useMutation } from '@apollo/client';
-import useForm from '../../hooks/useForm';
+import useForm from 'src/hooks/useForm';
 import { ImSpinner2 } from 'react-icons/im';
 import { RiLoginCircleLine } from 'react-icons/ri';
 
-import logo from '../../assets/images/logo.png';
+import logo from 'src/assets/images/logo.png';
 
 const fields = loginFields;
 
