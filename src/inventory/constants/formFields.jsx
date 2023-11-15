@@ -1,5 +1,5 @@
-import MovementType from "./MovementType";
-import randomID from "../../utils/randomID";
+import MovementType from "src/Inventory/constants/MovementType";
+import randomID from "src/utils/randomID";
 
 const fieldKey = () => randomID(); 
 

@@ -1,6 +1,6 @@
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { LIST_INVENTORY_MOVEMENTS } from 'src/Inventory/graphql-query';
-import { ADD_INVENTORY_REGISTRY_MUTATION, UPDATE_INVENTORY_REGISTRY_MUTATION, DELETE_INVENTORY_REGISTRY_MUTATION } from './graphql-mutation';
+import { ADD_INVENTORY_REGISTRY_MUTATION, UPDATE_INVENTORY_REGISTRY_MUTATION, DELETE_INVENTORY_REGISTRY_MUTATION } from 'src/Inventory/graphql-mutation';
 
 export const useListInventoryMovements = () => {
     const result = useQuery(LIST_INVENTORY_MOVEMENTS);
