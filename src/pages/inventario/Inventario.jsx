@@ -1,65 +1,124 @@
-import React, { Fragment } from 'react'
-
-const inventario = [
-  {insumo: 'Otoscopio', estado: 'Disponible', fecha: '01/03/2023', lugar: 'Box 1'},
-  {insumo: 'Hemoglucotest', estado: 'En Reparación', fecha: '24/01/2023', lugar: 'Bodega'},
-  {insumo: 'Esfigmomanómetro', estado: 'En Préstamo', fecha: '15/02/2023', lugar: 'Box 3'},
-];
-
-const estados_style = {
-  'Disponible': 'bg-green-100 text-green-600',
-  'En Reparación': 'bg-red-100 text-red-600',
-  'En Préstamo': 'bg-blue-100 text-blue-600',
-}
+import React, { Fragment, useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
+import {RiAddCircleLine} from 'react-icons/ri';
+import OffCanvas from './../../components/Offcanvas';
+import { useOffCanvasContext, useOffCanvasToggleContext } from "../../context/OffCanvasContext";
+import ListInventoryMovements from '../../Inventory/components/ListInventoryMovements';
+import InventoryForm from '../../Inventory/components/InventoryForm';
+import { inventoryFields } from '../../Inventory/constants/formFields';
+import { useAddRegistry } from '../../Inventory/custom-hooks';
+import { useListItems } from "../../Item/custom-hooks";
 
 export default function Inventario() {
+
+  const [formFields, setformFields] = useState(inventoryFields);
+  const [dataLength, setDataLength] = useState(0);
+  const [formType, setFormType] = useState(null);
+  const [formErrors, setFormErrors] = useState([]);
+  const [formValues, setFormValues] = useState({});
+  const [onSubmitHandler, setOnSubmitHandler] = useState(null);
+  const [getItems, result] = useListItems();
+
+  const isOpen = useOffCanvasContext();
+  const toggleOffCanvas = useOffCanvasToggleContext();
+
+  const [addInventoryMovement, {isLoading}] = useAddRegistry(formValues);
+
+  //Actualiza el listado de items en el form
+  useEffect(() => {
+    getItems().then((response) => {
+      if (response.hasOwnProperty('errors') && response.errors?.graphQLErrors.length > 0) {
+        console.log(response.errors.graphQLErrors);
+        setFormErrors(prev => [...response.errors.graphQLErrors]);
+        
+        return;
+      }
+
+      const itemOptions = [];
+      for (const item of response.data.Items) {
+        itemOptions.push({value:item._id, label:`${item.name} (${item.brand}) - ${item.internal_code}`});
+      }
+
+      const fieldWithItems = formFields.map((field) => {
+        if (field.name === 'item') field.options = itemOptions;
+        return field;
+      })
+
+      setformFields(fieldWithItems);
+    });
+  },[formType]);
+
+  // Configuracion inicial del formulario 
+  useEffect(() => {
+    if (formType === 'new') {
+      const initialValues = formFields.reduce((acc, field) => {
+        acc[field.name] = '';
+        return acc;
+      }, {})
+      
+      setFormValues(initialValues);
+      setOnSubmitHandler(() => onSubmitHandlerNewRegistry);
+    }
+  },[formType]);
+
+  // Muestra los errores de validacion del formulario
+  useEffect(() => {
+    // console.log('formErrors', formErrors);
+    if (formErrors.length === 0) return;
+    formErrors.map((error) => toast.error(error.message));
+  }, [formErrors]);
+    
+  // Gestiona el ingreso de un nuevo registro
+  const onSubmitHandlerNewRegistry = () => {
+    
+    addInventoryMovement().then((response) => {
+      console.log('response', response);
+
+      if (response.hasOwnProperty('errors') && response.errors?.graphQLErrors.length > 0) {
+        console.log(response.errors.graphQLErrors);
+        setFormErrors(prev => [...response.errors.graphQLErrors]);
+        
+        return;
+      }
+      
+      toast.success(`Nuevo Registro de ${response.data.addInventoryMovement.type} para ${response.data.addInventoryMovement.item} ha sido creado`);
+
+      toggleOffCanvas();
+      setFormValues({});
+      setFormErrors([]);
+    })
+    .catch((error) => {
+      console.log(error);
+      setFormErrors([{message: 'Error de Aplicacion: error.message'}]);
+    });
+
+    console.log('grabando callback');
+  }
+
   return (
     <Fragment>
       {/* Page Title */}
-      <h1 className="text-3xl font-semibold mb-8">Inventario</h1>
+      <h1 className="text-3xl font-semibold mb-8">Movimientos de Inventario</h1>
       
+      {/* Button to Add New Registry */}
+          <a href="#" 
+            className="w-60 bg-purple-600 text-white rounded-lg font-bold hover:bg-yellow-400 p-1 ml-2 flex items-center transition-all 1s"
+            onClick={() => {setFormType('new');toggleOffCanvas();}}>
+              <RiAddCircleLine className="text-purple-100 font-bold mr-1 space-x-2" />
+              <span>Registrar Movimiento</span>
+         </a>
+
       {/* Card */}
-      <div className="bg-white rounded-xl p-8 mb-4 flex flex-col gap-8 w-full shadow-sm">
+      <div className="bg-white rounded-xl p-8 my-4 flex flex-col gap-8 w-full shadow-sm">
 
-        {/* Table Title */}
-        <div className="flex items-center justify-between pb-4">
-          <h2 className='text-xl text-left font-semibold leading-loose'>Estado de los Insumos</h2>
-        </div>
-
-
-        <table className='w-full'>
-          <thead>
-            <tr className='text-sm font-semibold'>
-              <td className='py-4 border-b border-purple-500'>Insumo</td>
-              <td className='py-4 border-b border-purple-500'>Último Estado</td>
-              <td className='py-4 border-b border-purple-500'>Fecha Último Estado</td>
-              <td className='py-4 border-b border-purple-500'>Lugar</td>
-              <td className='py-4 border-b border-purple-500'>Acciones</td>
-            </tr>
-          </thead>
-          <tbody>
-          {
-            inventario.map((item, index) => {
-              return (
-                <tr className='text-sm text-gray-500'>
-                  <td className='py-4'>{item.insumo}</td>
-                  <td className='py-4'>
-                    <span className={`flex justify-center py-1 w-24 font-medium capitalize rounded-full ${estados_style[item.estado]}`}>
-                      {item.estado}
-                    </span>
-                  </td>
-                  <td className='py-4'>{item.fecha}</td>
-                  <td className='py-4'>{item.lugar}</td>
-                  <td className='py-4'></td>
-                </tr>
-              )
-            })
-          }
-          </tbody>
-        </table>
+        {/* List of Inventory Movements */}
+        <ListInventoryMovements />
       
       </div>
-
+    
+      {
+        isOpen && <OffCanvas offCanvasContent={<InventoryForm formFields={formFields} setFormValues={setFormValues} formValues={formValues} onSubmitHandler={onSubmitHandler} formErrors={formErrors} />} />
+      }
     </Fragment>
   )
 }

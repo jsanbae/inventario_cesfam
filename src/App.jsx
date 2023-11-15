@@ -1,40 +1,34 @@
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+  BrowserRouter, Routes, Route,
+} from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import Sidebar from "./components/Sidebar";
-import Header from "./components/Header";
+import Login from './pages/auth/Login';
+import MainLayout from './pages/MainLayout';
 import Dashboard from './pages/dashboard/Dashboard';
 import Insumos from './pages/insumos/Insumos';
 import Inventario from './pages/inventario/Inventario';
+import NotFound from './pages/errors/NotFound';
 
 function App() {
-
   return (
-    <Router>
-      <div className="min-h-screen grid grid-col-1 lg:grid-cols-6">
-    
-        {/* Sidebar */}
-        <Sidebar />
-
-        {/* Main */}
-        <main className='col-span-5'>
-          {/* Header */}
-          <Header />
-
-          {/* Content */}
-          <div className="p-4 lg:p-12 bg-gray-100 h-screen">
-    
-            <Routes>
-              <Route path="/" element={<Dashboard />}/>
-              <Route path="/insumos" element={<Insumos />} />
-              <Route path="/inventario" element={<Inventario />} />
-            </Routes>
-
-          </div>
-        </main>
-
-      </div>
-    </Router>
-  )
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          {/* <Route path="/register" element={<Register />}/> */}
+          <Route path="/" element={<MainLayout />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="insumos" element={<Insumos />} />
+            <Route path="inventario" element={<Inventario />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+      <ToastContainer position="bottom-right" />
+    </>
+  );
 }
 
-export default App
+export default App;
