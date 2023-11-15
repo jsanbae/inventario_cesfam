@@ -3,7 +3,7 @@ import { ColorRing } from  'react-loader-spinner'
 import { useListInventoryMovements } from 'src/Inventory/custom-hooks';
 import TableWithPagination from 'src/components/TableWithPaginator';
 
-export default function ListInventoryMovements() {
+export default function ListInventoryRegistry() {
 
   const estados_style = {
     'Ingreso': 'bg-green-100 text-green-600',

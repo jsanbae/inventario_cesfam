@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import {RiAddCircleLine} from 'react-icons/ri';
 import OffCanvas from 'src/components/OffCanvas';
 import { useOffCanvasContext, useOffCanvasToggleContext } from "src/context/OffCanvasContext";
-import ListInventoryMovements from 'src/Inventory/components/ListInventoryMovements';
+import ListInventoryRegistry from 'src/Inventory/components/ListInventoryRegistry';
 import InventoryForm from 'src/Inventory/components/InventoryForm';
 import { inventoryFields } from 'src/Inventory/constants/formFields';
 import { useAddRegistry } from 'src/Inventory/custom-hooks';
@@ -112,7 +112,7 @@ export default function Inventario() {
       <div className="bg-white rounded-xl p-8 my-4 flex flex-col gap-8 w-full shadow-sm">
 
         {/* List of Inventory Movements */}
-        <ListInventoryMovements />
+        <ListInventoryRegistry />
       
       </div>
     
