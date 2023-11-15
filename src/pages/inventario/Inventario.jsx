@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import {RiAddCircleLine} from 'react-icons/ri';
-import OffCanvas from 'src/components/Offcanvas';
+import OffCanvas from 'src/components/OffCanvas';
 import { useOffCanvasContext, useOffCanvasToggleContext } from "src/context/OffCanvasContext";
 import ListInventoryMovements from 'src/Inventory/components/ListInventoryMovements';
 import InventoryForm from 'src/Inventory/components/InventoryForm';
