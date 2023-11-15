@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "serve dist -s -n -L -p $PORT"
   },
   "author": "Javier Sánchez",
   "license": "ISC",
@@ -18,7 +19,6 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "dotenv": "^16.0.3",
-    "framer-motion": "^10.13.0",
     "graphql": "^16.7.1",
     "jwt-decode": "^3.1.2",
     "moment": "^2.29.4",
@@ -27,7 +27,8 @@
     "react-icons": "^4.8.0",
     "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.9.0",
-    "react-toastify": "^9.1.3"
+    "react-toastify": "^9.1.3",
+    "serve": "^14.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
