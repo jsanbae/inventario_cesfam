@@ -1,6 +1,6 @@
 import React from 'react'
-import { useListInventoryMovements } from 'src/Inventory/custom-hooks';
 import { ColorRing } from  'react-loader-spinner'
+import { useListInventoryMovements } from 'src/Inventory/custom-hooks';
 import TableWithPagination from 'src/components/TableWithPaginator';
 
 export default function ListInventoryMovements() {

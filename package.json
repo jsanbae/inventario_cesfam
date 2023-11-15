@@ -52,5 +52,15 @@
   },
   "engines": {
     "node": "16.x"
-  }
+  },
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsanbae/inventario_cesfam.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/jsanbae/inventario_cesfam/issues"
+  },
+  "homepage": "https://github.com/jsanbae/inventario_cesfam#readme"
 }
