@@ -5,7 +5,7 @@ import ListItems from 'src/Item/components/ListItems';
 import ItemForm from 'src/Item/components/ItemForm';
 import { useAddItem } from 'src/Item/custom-hooks';
 import { insumoFields } from 'src/Item/constants/formFields';
-import OffCanvas from 'src/components/Offcanvas';
+import OffCanvas from 'src/components/OffCanvas';
 import { useOffCanvasContext, useOffCanvasToggleContext } from "src/context/OffCanvasContext";
 
 export default function Insumos() {
